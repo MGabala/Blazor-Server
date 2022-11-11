@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorServer.Components.Widgets;
+
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace BlazorServer.Pages
@@ -27,6 +29,11 @@ namespace BlazorServer.Pages
 
         }
         //This is how you can hit methods via code from page
+        #endregion
+
+        #region Widgets
+        public List<Type> Widgets { get; set; } = new List<Type>() {
+                    typeof(LoggedInWidget)};
         #endregion
     }
 }

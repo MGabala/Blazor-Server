@@ -10,3 +10,7 @@
 <p><div><input class="form-control-sm" @onchange="@InputString" /></div></p>
 
 <p><button class="btn btn-primary" @onclick="() => NavigateToDetails()">Navigate to details method</button></p>
+
+@foreach(var widget in Widgets){
+    <DynamicComponent Type="widget"></DynamicComponent>
+}
