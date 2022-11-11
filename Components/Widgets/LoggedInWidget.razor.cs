@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Identity;
 
 namespace BlazorServer.Components.Widgets
 {
     public partial class LoggedInWidget
     {
-        private int LoggedUsers { get; set; } = 0;
+        [Inject]
+        public ApplicationState ApplicationState { get; set; } = null!;
+        private int LoggedUsers { get; set; } 
 
         protected override void OnInitialized()
         {
-            LoggedUsers = new Random().Next(10);
+
+            LoggedUsers=ApplicationState.Number;
         }
     }
 }
