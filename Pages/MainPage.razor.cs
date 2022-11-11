@@ -45,12 +45,26 @@ namespace BlazorServer.Pages
         #region ErrorHandling
         //<ErrorBoundary>
         //<ChildContent>
-      
+
         //</ChildContent>
         //<ErrorContent>
         //<p class="error">Error</p>        
         //</ErrorContent>
         //</ErrorBoundary>
+        #endregion
+
+        #region DataBinding
+        public ItemModel Item { get; set; }
+        protected override Task OnInitializedAsync()
+        {
+            Item = new ItemModel
+            {
+                Id = 1,
+                Name = "Test name",
+                Description = "Test description"
+            };
+            return base.OnInitializedAsync();
+        }
         #endregion
     }
 }

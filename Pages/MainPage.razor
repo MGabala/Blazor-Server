@@ -1,7 +1,7 @@
 ﻿@page "/mainpage";
 
 <h3>Exploring blazor...</h3>
-
+<hr />
 <ListComponent></ListComponent>
 
 
@@ -25,3 +25,34 @@
 </ErrorBoundary>
 
 
+<h3>Data binding...</h3>
+<hr />
+<div>
+    <h2>Getting values from variables</h2>
+    Employee first name: <label>@Item.Name</label><br />
+    Employee last name: <label>@Item.Description</label>
+</div>
+
+<hr />
+<div>
+    <h2>One way data binding on form controls</h2>
+    <p>Item name: <input value="@Item.Name" /></p>
+    <p>Item description: <input value="@Item.Description" /></p>
+</div>
+<hr />
+<div>
+    <h2>Two way data binding</h2>
+    <p>Item name: <input @bind="@Item.Name" /></p>
+    <p>Item description <input @bind="@Item.Description" /></p>
+</div>
+<hr />
+<div>
+    <h2>Two way data binding on a different event</h2>
+    <p>Item name: <input @bind-value="@Item.Name" @bind-value:event="oninput" /></p>
+    <p>Item name: <input @bind-value="@Item.Description" @bind-value:event="oninput" /></p>
+</div>
+<hr />
+<div>
+    <button class="btn btn-success" @onclick="Button_Click">Click me</button>
+</div>
+<hr />
