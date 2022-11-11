@@ -3,9 +3,10 @@ using BlazorServer.Data;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddDbContext<MainDatabase>(db_config => db_config.UseSqlite(builder.Configuration["ConnectionStrings:DB"]));
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

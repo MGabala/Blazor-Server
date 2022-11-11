@@ -65,6 +65,10 @@ namespace BlazorServer.Pages
             };
             return base.OnInitializedAsync();
         }
+        public async Task Button_Click()
+        {
+            Item.Name = "Change value after hitting ";
+        }
         #endregion
     }
 }
