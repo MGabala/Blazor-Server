@@ -1,12 +1,17 @@
-﻿using BlazorServer.Components.Widgets;
+﻿using BlazorServer.Components;
+using BlazorServer.Components.Widgets;
+using BlazorServer.MockData;
+using BlazorServer.Models;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace BlazorServer.Pages
 {
     public partial class MainPage
     {
+        public List<ItemModel> Items { get; set; }
 
         #region SimplyHitTheBreakPoint
         private async Task ClickEventHandler()
@@ -31,9 +36,21 @@ namespace BlazorServer.Pages
         //This is how you can hit methods via code from page
         #endregion
 
+        //This is how you can use widgets dynamically generated 
         #region Widgets
         public List<Type> Widgets { get; set; } = new List<Type>() {
                     typeof(LoggedInWidget)};
+        #endregion
+
+        #region ErrorHandling
+        //<ErrorBoundary>
+        //<ChildContent>
+      
+        //</ChildContent>
+        //<ErrorContent>
+        //<p class="error">Error</p>        
+        //</ErrorContent>
+        //</ErrorBoundary>
         #endregion
     }
 }

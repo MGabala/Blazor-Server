@@ -14,3 +14,13 @@
 @foreach(var widget in Widgets){
     <DynamicComponent Type="widget"></DynamicComponent>
 }
+
+<ErrorBoundary>
+    <ChildContent>
+      
+    </ChildContent>
+    <ErrorContent>
+    <p class="error">Error</p>        
+    </ErrorContent>
+</ErrorBoundary>
+
