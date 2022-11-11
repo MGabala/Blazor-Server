@@ -1,5 +1,6 @@
 using BlazorServer;
 using BlazorServer.Data;
+using BlazorServer.Repositories;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -12,6 +13,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<ApplicationState>();
+builder.Services.AddScoped<IItemRepository,ItemRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

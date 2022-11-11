@@ -56,3 +56,20 @@
     <button class="btn btn-success" @onclick="Button_Click">Click me</button>
 </div>
 <hr />
+
+<p>Binding input to specific variable
+    <EditForm Model="@Item">
+        <InputText id="name" @bind-Value="@Item.Name"></InputText>
+    </EditForm>
+</p>
+<hr />
+<p> Fetching Input Select from Database (need to explore this more...)
+    <EditForm Model="@Item">  
+        <InputSelect id="item" class="form-select" @bind-Value="@Item.Id">
+            @foreach (var item in Items)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </InputSelect>
+    </EditForm>
+</p>

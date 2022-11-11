@@ -1,7 +1,9 @@
 ﻿using BlazorServer.Components;
 using BlazorServer.Components.Widgets;
+using BlazorServer.Entities;
 using BlazorServer.MockData;
 using BlazorServer.Models;
+using BlazorServer.Repositories;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -11,7 +13,10 @@ namespace BlazorServer.Pages
 {
     public partial class MainPage
     {
-        public List<ItemModel> Items { get; set; }
+        [Inject]
+        private IItemRepository _repository { get; set; }
+
+        public IEnumerable<ItemEntity> Items { get; set; }
 
         #region SimplyHitTheBreakPoint
         private async Task ClickEventHandler()
@@ -54,21 +59,34 @@ namespace BlazorServer.Pages
         #endregion
 
         #region DataBinding
-        public ItemModel Item { get; set; }
-        protected override Task OnInitializedAsync()
-        {
-            Item = new ItemModel
-            {
-                Id = 1,
-                Name = "Test name",
-                Description = "Test description"
-            };
-            return base.OnInitializedAsync();
-        }
+        public ItemEntity Item { get; set; } = new ItemEntity();
+        //protected override Task OnInitializedAsync()
+        //{
+        //    Item = new ItemEntity
+        //    {
+        //        Id = 1,
+        //        Name = "Test name",
+        //        Description = "Test description"
+        //    };
+        //    return base.OnInitializedAsync();
+        //}
         public async Task Button_Click()
         {
             Item.Name = "Change value after hitting ";
         }
         #endregion
+        [Parameter]
+        public string ItemId { get; set; }
+        protected async override Task OnInitializedAsync()
+        {
+            Items = await _repository.GetAllItems();
+
+            Item = new ItemEntity
+            {
+                Id = 1,
+                Name = "Test name",
+                Description = "Test description"
+            };
+        }
     }
 }
