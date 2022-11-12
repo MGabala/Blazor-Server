@@ -145,14 +145,20 @@
 <hr />
 
 <p>Event handlers (OnValidSubmit / OnInvalidSubmit)
-    <EditForm Model="@Item" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+    @if (Check == false)
+    {
+        <EditForm Model="@Item" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
 
-        <InputText id="name" @bind-Value="@Item.Name"></InputText>
-        <ValidationMessage For="@(()=>Item.Name)" />
+            <InputText id="name" @bind-Value="@Item.Name"></InputText>
+            <ValidationMessage For="@(()=>Item.Name)" />
 
-        <p><button type="submit" class="btn btn-success">Test</button></p>
-    </EditForm>
-
+            <p><button type="submit" class="btn btn-success">Test</button></p>
+        </EditForm>
+    }
+    else
+    {
+        <div class="alert @Status">test</div>
+    }
 </p>

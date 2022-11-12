@@ -107,13 +107,17 @@ namespace BlazorServer.Pages
         }
 
         #region SubmitingForm
+        protected string Status = string.Empty;
+        protected bool Check = false;
         protected async Task HandleValidSubmit()
         {
-
+            Status = "alert-success";
+            Check = true;
         }
         protected async Task HandleInvalidSubmit()
         {
-
+            Status = "alert-danger";
+            Check = false;
         }
         #endregion
     }
