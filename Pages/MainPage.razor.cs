@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.JSInterop;
 
 namespace BlazorServer.Pages
 {
@@ -129,5 +130,20 @@ namespace BlazorServer.Pages
         }
         #endregion
 
+        #region JavaScripts
+        [Inject]
+        public IJSRuntime JSTrigger { get; set; } 
+
+        protected async Task JSTriggerMethod()
+        {
+             await JSTrigger.InvokeVoidAsync("TestJSFunction");
+        }
+
+        protected async override Task OnAfterRenderAsync(bool firstRender)
+        {
+            await JSTrigger.InvokeVoidAsync("TestJSFunction");   
+        }
+
+        #endregion
     }
 }
