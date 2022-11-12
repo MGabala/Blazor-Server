@@ -162,3 +162,20 @@
         <div class="alert @Status">test</div>
     }
 </p>
+<hr />
+
+<p>Delete trigger
+    <EditForm Model="@Item">
+        <button type="button" class="btn btn-danger" @onclick="@DeleteTrigger">Delete</button>
+    </EditForm>
+
+</p>
+<hr />
+
+<p>Navigation trigger
+    <EditForm Model="@Item">
+        <button type="button" class="btn btn-outline-danger" @onclick="@NavigateTrigger">Navigate</button>
+    </EditForm>
+
+
+</p>

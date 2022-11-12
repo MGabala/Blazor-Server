@@ -119,6 +119,15 @@ namespace BlazorServer.Pages
             Status = "alert-danger";
             Check = false;
         }
+        protected async Task DeleteTrigger()
+        {
+
+        }
+        protected async Task NavigateTrigger()
+        {
+            NavigationManager.NavigateTo("/");
+        }
         #endregion
+
     }
 }
