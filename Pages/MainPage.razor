@@ -131,4 +131,26 @@
         <InputFile OnChange="OnInputFileChange"/>
     </EditForm>
 </p>
+<hr />
 
+<p>Validations
+    <EditForm Model="@Item">
+         <DataAnnotationsValidator/>
+         <ValidationSummary/>
+
+        <InputText id="name" @bind-Value="@Item.Name"></InputText>
+        <ValidationMessage For="@(()=>Item.Name)"/>
+    </EditForm>
+</p>
+<hr />
+
+<p>Event handlers (OnValidSubmit / OnInvalidSubmit)
+    <EditForm Model="@Item" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <InputText id="name" @bind-Value="@Item.Name"></InputText>
+        <ValidationMessage For="@(()=>Item.Name)" />
+    </EditForm>
+
+</p>

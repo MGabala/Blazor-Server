@@ -7,6 +7,7 @@ namespace BlazorServer.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [StringLength(5,ErrorMessage ="Sorry, testing validation (max 5 characters)")]
         public string Name { get; set; }
         public string Description { get; set; }
         public string Color { get; set; }
