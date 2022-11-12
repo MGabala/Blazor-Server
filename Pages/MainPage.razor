@@ -52,6 +52,7 @@
     <p>Item name: <input @bind-value="@Item.Description" @bind-value:event="oninput" /></p>
 </div>
 <hr />
+
 <div>
     <button class="btn btn-success" @onclick="Button_Click">Click me</button>
 </div>
@@ -63,6 +64,8 @@
     </EditForm>
 </p>
 <hr />
+
+
 <p> Fetching Input Select from Database (need to explore this more...)
     <EditForm Model="@Item">  
         <InputSelect id="item" class="form-select" @bind-Value="@Item.Id">
@@ -72,4 +75,35 @@
             }
         </InputSelect>
     </EditForm>
+</p> 
+<hr />
+
+
+<p>Input Text Area
+<EditForm Model="@Item"> 
+    <InputTextArea @bind-Value="@Item.Description" id="description" class="form-control" placeholder="Enter comment"></InputTextArea>
+</EditForm>
+</p>
+<hr />
+
+
+<p>Input number
+<EditForm Model="@Item">
+    <InputNumber id="id"  @bind-Value="@Item.Id"></InputNumber>
+</EditForm>
+</p>
+<hr />
+
+<p>InputDate
+<EditForm Model="@Item">
+    <InputDate id="date" @bind-Value="@Item.ProductionDate"></InputDate>
+</EditForm>
+</p>
+<hr />
+
+<p>Input check
+    <EditForm Model="@Item">
+        <InputCheckbox id="checkbox" @bind-Value="@Item.IsAvailable"></InputCheckbox>
+    </EditForm>
+
 </p>
