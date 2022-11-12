@@ -1,5 +1,6 @@
 ﻿@page "/mainpage";
 
+
 <h3>Exploring blazor...</h3>
 <hr />
 <ListComponent></ListComponent>
@@ -105,5 +106,29 @@
     <EditForm Model="@Item">
         <InputCheckbox id="checkbox" @bind-Value="@Item.IsAvailable"></InputCheckbox>
     </EditForm>
-
 </p>
+<hr />
+
+<p>Input radio
+    
+<EditForm Model="@Item">
+    <InputRadioGroup Name="Colors" @bind-Value="@Item">
+            @foreach (var item in Items)
+            {
+                 <p>
+                     <InputRadio Name="Colors" Value=" item"/>
+                     @item.Color
+                </p>
+               
+            }
+        </InputRadioGroup>
+</EditForm>
+</p>
+<hr />
+
+<p>Input File
+    <EditForm Model="@Item">
+        <InputFile OnChange="OnInputFileChange"/>
+    </EditForm>
+</p>
+

@@ -6,6 +6,7 @@ using BlazorServer.Models;
 using BlazorServer.Repositories;
 
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Http.Features;
 
@@ -87,6 +88,12 @@ namespace BlazorServer.Pages
                 Name = "Test name",
                 Description = "Test description"
             };
+        }
+
+        //Upload file
+        private void OnInputFileChange(InputFileChangeEventArgs input)
+        {
+
         }
     }
 }
