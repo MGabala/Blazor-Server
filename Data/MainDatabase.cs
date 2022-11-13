@@ -11,6 +11,7 @@ namespace BlazorServer.Data
 
         }
 
-        public DbSet<ItemEntity> Items { get; set; } = null!;
+        public DbSet<ItemEntity> Items => Set<ItemEntity>();
+        public DbSet<TestEntity> Tests => Set<TestEntity>();
     }
 }

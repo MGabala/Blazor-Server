@@ -7,14 +7,17 @@ namespace BlazorServer.Repositories
 {
     public class ItemRepository : IItemRepository
     {
-        private MainDatabase _context;
-        public ItemRepository(MainDatabase context)
+        private IDbContextFactory<MainDatabase> _context;
+        public ItemRepository(IDbContextFactory<MainDatabase> context)
         {
             _context = context;
         }
         public async Task<IEnumerable<ItemEntity>> GetAllItems()
         {
-            return await _context.Items.OrderBy(x => x.Id).ToListAsync();
+            //implementing DbContextFactory
+            using var factory = _context.CreateDbContext();
+            return await factory.Items.OrderBy(x => x.Id).ToListAsync();
+            
         }
     }
 }
