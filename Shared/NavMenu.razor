@@ -9,7 +9,8 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
+        <AuthorizeView>        
+            <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
@@ -35,6 +36,7 @@
                 <span class="" aria-hidden="true"></span> <p>Number: <LoggedUsersCounter></LoggedUsersCounter></p>
                 </NavLink>
             </div>
+        </AuthorizeView>
 
     </nav>
 </div>

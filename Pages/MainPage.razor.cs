@@ -133,12 +133,12 @@ namespace BlazorServer.Pages
         #region JavaScripts
         [Inject]
         public IJSRuntime JSTrigger { get; set; } 
-
+        //Manually call JS
         protected async Task JSTriggerMethod()
         {
              await JSTrigger.InvokeVoidAsync("TestJSFunction");
         }
-
+        //After loading component
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
             await JSTrigger.InvokeVoidAsync("TestJSFunction");   
