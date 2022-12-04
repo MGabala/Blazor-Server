@@ -78,8 +78,8 @@ namespace BlazorServer.Pages
             Item.Name = "Change value after hitting ";
         }
         #endregion
-        [Parameter]
-        public string ItemId { get; set; }
+        //[Parameter]
+        //public string ItemId { get; set; }
         protected async override Task OnInitializedAsync()
         {
             Items = await _repository.GetAllItems();
@@ -139,10 +139,10 @@ namespace BlazorServer.Pages
              await JSTrigger.InvokeVoidAsync("TestJSFunction");
         }
         //After loading component
-        protected async override Task OnAfterRenderAsync(bool firstRender)
-        {
-            await JSTrigger.InvokeVoidAsync("TestJSFunction");   
-        }
+        //protected async override Task OnAfterRenderAsync(bool firstRender)
+        //{
+        //    await JSTrigger.InvokeVoidAsync("TestJSFunction");   
+        //}
 
         #endregion
     }
