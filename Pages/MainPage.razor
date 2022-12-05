@@ -195,3 +195,27 @@ This is how to use authorization
         <p>Redirection
     <NavLink href="/MainPage">Redirect</NavLink>
         </p>
+
+
+    <p>Passing arguments with function
+
+@*  post.Id = argument      OnValidSubmit="@(() => OnValidComment(post.Id))*@
+@*    <EditForm Model="@Comment" OnValidSubmit="@(() => OnValidComment(post.Id))" OnInvalidSubmit="@OnInvalidComment">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="row">
+            <div class="col-md-12">
+                <p> <InputText type="text" class="form-control" placeholder="Your comment" id="comment" @bind-Value="@Comment.CommentDescription"></InputText></p>
+                <ValidationMessage For="@(()=>Comment.CommentDescription)" />
+            </div>
+            <div class="col-md-2">
+                <p> <InputText type="text" class="form-control" placeholder="Your nick" id="name" @bind-Value="@Comment.CommentAuthor"></InputText></p>
+                <ValidationMessage For="@(()=>Comment.CommentAuthor)" />
+
+            </div>
+            <div class="col-md-3">
+                <p><button type="submit" class="btn btn-success" name="id" value="@post.Id">Add comment</button></p>
+            </div>
+        </div>
+    </EditForm>*@
+    </p>
